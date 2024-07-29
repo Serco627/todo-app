@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import useLocalStorageState from "use-local-storage-state";
 import "./TodoList.css"; // Importiere die CSS-Datei
 
 export default function TodoList() {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState("");
-  const [dueDate, setDueDate] = useState(""); // Zustand für das Fälligkeitsdatum
-  const [priority, setPriority] = useState("medium"); // Zustand für die Priorität
+  const [todos, setTodos] = useLocalStorageState("todos", {
+    defaultValue: [],
+  });
+  const [newTodo, setNewTodo] = useLocalStorageState("newTodo", {
+    defaultValue: "",
+  });
+  const [dueDate, setDueDate] = useLocalStorageState("dueDate", {
+    defaultValue: "",
+  });
+  const [priority, setPriority] = useLocalStorageState("priority", {
+    defaultValue: "medium",
+  });
 
   const addTodo = () => {
     if (newTodo.trim() === "") return;
