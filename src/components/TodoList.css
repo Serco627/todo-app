@@ -84,7 +84,6 @@
 
 .todo-item.completed {
   background-color: #e0ffe0;
-  text-decoration: line-through;
 }
 
 .todo-main {
